@@ -22,11 +22,13 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
+    "swagger-typescript-api": "^9.3.1",
     "typescript": "^4.7.4",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
   "scripts": {
+    "codegen": "npx swagger-typescript-api -p http://185.182.111.249/api-json -o ./src -n ./api/types.ts",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
