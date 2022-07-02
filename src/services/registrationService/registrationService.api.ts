@@ -1,1 +1,5 @@
-import { axios } from '01/axios';
+import { axios } from "../../api";
+
+export const registerUser = () => {
+   axios;
+};
