@@ -15,7 +15,9 @@ forward({
 
 const $isLoading = registerUserFx.pending;
 
+const handleRegistrationComplete = registerUserFx.doneData
+
 export const registrationService = {
-   inputs: { handleRegisterUser },
+   inputs: { handleRegisterUser, handleRegistrationComplete },
    outputs: { $isLoading },
 };
