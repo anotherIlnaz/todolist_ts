@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { Navbar } from "./components/Navbar/Navbar";
-import { AuthPage } from "./pages/AuthPage";
 import { MainPage } from "./pages/MainPage";
 import { NotesPage } from "./pages/NotesPage";
 import { NotFound } from "./pages/NotFound";
+import { WelcomePage } from "./services/welcomePageService/view/WelcomePage";
 
 const isAuth = false;
 
@@ -19,7 +18,7 @@ function App() {
                   <Route element={<NotFound />} path="*" />
                </>
             ) : (
-               <Route element={<AuthPage />} path="/" />
+               <Route element={<WelcomePage />} path="/" />
             )}
          </Routes>
       </BrowserRouter>
