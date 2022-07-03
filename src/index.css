@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
 
-*{
+* {
    box-sizing: border-box;
 }
 
@@ -13,7 +13,9 @@
    --fw-bold: 800;
    --rad: 0.5rem;
 }
+
 body {
+   min-height: 100vh;
    margin: 0;
    font-family: var(--f-family);
    color: var(--colors-text);
@@ -30,12 +32,12 @@ body[data-theme="Dark"] {
    --colors-grey: rgba(64, 63, 66, 0.892);
 }
 
-body[data-theme="Light"] {
+body {
    --colors-text: hsl(200, 15%, 8%);
    --colors-bg: hsla(0, 4%, 91%, 0.838);
    --colors-ui-base: hsl(0, 0%, 100%);
    --colors-ui-apple: rgb(255, 179, 64);
    --shadow: rgba(149, 157, 165, 0.645) 0px 8px 24px;
    --colors-grey: rgba(183, 181, 188, 0.892);
-   --colors-grey-lupa:rgba(46, 45, 47, 0.892)
+   --colors-grey-lupa: rgba(46, 45, 47, 0.892);
 }

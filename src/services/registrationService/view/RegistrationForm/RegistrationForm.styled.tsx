@@ -1,6 +1,11 @@
+import { FC } from "react";
 import styled from "styled-components";
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+   width: min-content;
+   background-color: white;
+`;
 
 export const Container = styled.div`
    background-color: (--colors-ui-base);
@@ -46,18 +51,44 @@ export const StyledButton = styled.button`
    gap: 0.75rem;
    border: 1.6px solid;
    border-color: var(--color-text);
-   border-radius: var(--rad);
 
    &:hover {
       opacity: 0.6;
    }
+
+   margin: 1rem;
 `;
 
 export const FormInput = styled.input`
-   border-bottom: 0px solid;
+   all: unset;
+   padding: 0 10px;
+   border: 2px solid;
    border-color: var(--colors-ui-apple);
    /* border: none; */
    outline: none;
    background-color: transparent;
-   font-size: 20px;
+   font-size: 16px;
 `;
+
+export const StyledLabel = styled.label`
+   font-size: 20px;
+   font-weight: 400;
+`;
+
+const StyledErrorMessageWrapper = styled.div`
+   position: relative;
+`;
+
+const StyledErrorMessage = styled.div`
+   color: red;
+   font-size: 13px;
+   position: absolute;
+`;
+
+export const ErrorMessage: FC<{ text?: string }> = ({ text }) => {
+   return (
+      <StyledErrorMessageWrapper>
+         <StyledErrorMessage>{text}</StyledErrorMessage>
+      </StyledErrorMessageWrapper>
+   );
+};

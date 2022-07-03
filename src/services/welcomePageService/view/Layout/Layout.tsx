@@ -1,13 +1,13 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Outlet } from "react-router-dom";
-import { ModeSwitcher } from "../../../../components/ModeSwitcher";
+import { Header } from "./Header";
 import { Wrapper } from "./Layout.styled";
 import { LayoutProps } from "./Layout.types";
 
 export const Layout: FC<LayoutProps> = ({}) => {
    return (
       <Wrapper>
-         <ModeSwitcher />
+         <Header />
          <Outlet />
       </Wrapper>
    );

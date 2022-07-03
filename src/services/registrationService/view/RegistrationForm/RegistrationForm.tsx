@@ -4,9 +4,11 @@ import * as yup from "yup";
 import { CreateUserDto } from "../../../../api/types";
 
 import {
+   ErrorMessage,
    FormInput,
    FormItem,
    StyledButton,
+   StyledLabel,
    Wrapper,
 } from "./RegistrationForm.styled";
 import { RegistrationFormProps } from "./RegistrationForm.types";
@@ -49,9 +51,9 @@ export const RegistrationForm: FC<RegistrationFormProps> = ({
                handleSubmit,
                dirty,
             }) => (
-               <div>
+               <>
                   <FormItem>
-                     <label htmlFor="name">Name:</label>
+                     <StyledLabel htmlFor="name">Name:</StyledLabel>
                      <br />
                      <FormInput
                         type={"text"}
@@ -61,11 +63,11 @@ export const RegistrationForm: FC<RegistrationFormProps> = ({
                         value={values.name}
                      />
 
-                     {touched.name && errors.name && <p>{errors.name}</p>}
+                     {touched.name && <ErrorMessage text={errors.name} />}
                   </FormItem>
 
                   <FormItem>
-                     <label htmlFor="email">Email:</label>
+                     <StyledLabel htmlFor="email">Email:</StyledLabel>
                      <br />
                      <FormInput
                         type="email"
@@ -74,11 +76,11 @@ export const RegistrationForm: FC<RegistrationFormProps> = ({
                         onBlur={handleBlur}
                         value={values.email}
                      />
-                     {touched.email && errors.email && <p>{errors.email}</p>}
+                     {touched.email && <ErrorMessage text={errors.email} />}
                   </FormItem>
 
                   <FormItem>
-                     <label htmlFor="password">Пароль:</label>
+                     <StyledLabel htmlFor="password">Пароль:</StyledLabel>
                      <br />
                      <FormInput
                         type={"password"}
@@ -87,15 +89,15 @@ export const RegistrationForm: FC<RegistrationFormProps> = ({
                         onBlur={handleBlur}
                         value={values.password}
                      />
-                     {touched.password && errors.password && (
-                        <p>{errors.password}</p>
+                     {touched.password && (
+                        <ErrorMessage text={errors.password} />
                      )}
                   </FormItem>
 
                   <FormItem>
-                     <label htmlFor="passwordConfirmation">
+                     <StyledLabel htmlFor="passwordConfirmation">
                         Подтверди пароль:
-                     </label>
+                     </StyledLabel>
                      <br />
                      <FormInput
                         type={"password"}
@@ -104,10 +106,9 @@ export const RegistrationForm: FC<RegistrationFormProps> = ({
                         onBlur={handleBlur}
                         value={values.passwordConfirmation}
                      />
-                     {touched.passwordConfirmation &&
-                        errors.passwordConfirmation && (
-                           <p>{errors.passwordConfirmation}</p>
-                        )}
+                     {touched.passwordConfirmation && (
+                        <ErrorMessage text={errors.passwordConfirmation} />
+                     )}
                   </FormItem>
 
                   <StyledButton
@@ -117,7 +118,11 @@ export const RegistrationForm: FC<RegistrationFormProps> = ({
                   >
                      Зарегаться
                   </StyledButton>
-               </div>
+
+                  <StyledButton
+                  // onClick={}
+                  > Есть аккаунт </StyledButton>
+               </>
             )}
          </Formik>
       </Wrapper>
