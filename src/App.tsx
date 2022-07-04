@@ -5,8 +5,8 @@ import { NotesPage } from "./pages/NotesPage";
 import { NotFound } from "./pages/NotFound";
 import { AuthContainer } from "./services/authService";
 import { NotificationsContainer } from "./services/notificationsService";
+import { WelcomePageContainer } from "./services/welcomePageService";
 import { Layout } from "./services/welcomePageService/view/Layout";
-import { WelcomePage } from "./services/welcomePageService/view/WelcomePage";
 
 const isAuth = false;
 
@@ -24,7 +24,7 @@ function App() {
                   </>
                ) : (
                   <Route element={<Layout />}>
-                     <Route path="/" element={<WelcomePage />} />
+                     <Route path="/" element={<WelcomePageContainer />} />
                      {/* <Route path="/" element={<WelcomePage />} /> */}
                      <Route path="/auth" element={<AuthContainer />} />
                      <Route path="*" element={<Navigate to="/" />} />

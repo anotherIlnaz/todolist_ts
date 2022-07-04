@@ -1,5 +1,6 @@
 import { createDomain, forward } from "effector";
 import { CreateUserDto } from "../../api/types";
+import { welcomePageService } from "../welcomePageService/welcomePageService.model";
 import { registerUser } from "./registrationService.api";
 
 const domain = createDomain("registrationService");
@@ -15,9 +16,13 @@ forward({
 
 const $isLoading = registerUserFx.pending;
 
-const handleRegistrationComplete = registerUserFx.doneData
+const handleRegistrationComplete = registerUserFx.doneData;
 
 export const registrationService = {
-   inputs: { handleRegisterUser, handleRegistrationComplete },
+   inputs: {
+      handleRegisterUser,
+      handleRegistrationComplete,
+      setStatus: welcomePageService.inputs.setStatus,
+   },
    outputs: { $isLoading },
 };

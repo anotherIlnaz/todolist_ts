@@ -2,6 +2,7 @@ import { Formik } from "formik";
 import { FC } from "react";
 import * as yup from "yup";
 import { CreateUserDto } from "../../../../api/types";
+import { WelcomePageStatus } from "../../../welcomePageService/welcomePageService.types";
 
 import {
    ErrorMessage,
@@ -27,6 +28,7 @@ const validationsSchema = yup.object().shape({
 export const RegistrationForm: FC<RegistrationFormProps> = ({
    handleRegisterUser,
    isLoading,
+   setStatus,
 }) => {
    return (
       <Wrapper>
@@ -120,7 +122,7 @@ export const RegistrationForm: FC<RegistrationFormProps> = ({
                   </StyledButton>
 
                   <StyledButton
-                  // onClick={}
+                  onClick={() => setStatus(WelcomePageStatus.Authentication)}
                   > Есть аккаунт </StyledButton>
                </>
             )}
