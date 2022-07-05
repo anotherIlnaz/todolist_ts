@@ -1,11 +1,11 @@
 import { createDomain, forward } from "effector";
-import { WelcomePageStatus } from "./welcomePageService.types";
+import { WelcomePageStatusTypes } from "./welcomePageService.types";
 
 const domain = createDomain("welcomePageService");
 
-const $welcomePageStatus = domain.createStore(WelcomePageStatus.Registration);
+const $welcomePageStatus = domain.createStore(WelcomePageStatusTypes.Registration);
 
-const setStatus = domain.createEvent<WelcomePageStatus>();
+const setStatus = domain.createEvent<WelcomePageStatusTypes>();
 
 forward({ from: setStatus, to: $welcomePageStatus });
 

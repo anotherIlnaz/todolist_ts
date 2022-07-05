@@ -1,10 +1,14 @@
-import React, { FC } from "react";
+import  { FC } from "react";
 import { Button, Checkbox, Form, Input } from "antd";
 
 import { Wrapper } from "./AuthForm.styled";
 import { AuthFormProps } from "./AuthForm.types";
 
-export const AuthForm: FC<AuthFormProps> = ({}) => {
+import { WelcomePageStatusTypes } from "../../../welcomePageService/welcomePageService.types";
+
+export const AuthForm: FC<AuthFormProps> = ({
+   setStatus
+}) => {
    const onFinish = (values: any) => {
       console.log("Success:", values);
    };
@@ -34,7 +38,7 @@ export const AuthForm: FC<AuthFormProps> = ({}) => {
          <Form.Item
             label="Password"
             name="password"
-            rules={[{ required: true, message: "Введи пароль!" }]}
+            rules={[{ required: true, message: "Введи пароль!)" }]}
          >
             <Input.Password />
          </Form.Item>
@@ -49,7 +53,11 @@ export const AuthForm: FC<AuthFormProps> = ({}) => {
 
          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit">
-               Submit
+               Войти
+            </Button>
+            <br />
+            <Button type="primary" onClick={ () => setStatus(WelcomePageStatusTypes.Registration) }>
+               Зарегистрироваться
             </Button>
          </Form.Item>
       </Form>

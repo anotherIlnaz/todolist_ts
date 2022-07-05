@@ -1,4 +1,4 @@
-export enum WelcomePageStatus {
+export enum WelcomePageStatusTypes {
    Registration = "registration",
    Authentication = "authentication",
 }

@@ -4,12 +4,12 @@ import { StyledVaz2114, Wrapper } from "./WelcomePage.styled";
 import { WelcomePageProps } from "./WelcomePage.types";
 import vaz2114 from "../../../../assets/vaz-2114.png";
 import { AuthContainer } from "../../../authService";
-import { WelcomePageStatus } from "../../welcomePageService.types";
+import { WelcomePageStatusTypes } from "../../welcomePageService.types";
 
 export const WelcomePage: FC<WelcomePageProps> = ({ welcomePageStatus }) => {
    return (
       <Wrapper>
-         {welcomePageStatus === WelcomePageStatus.Registration ? (
+         {welcomePageStatus === WelcomePageStatusTypes.Registration ? (
             <RegistrationContainer />
          ) : (
             <AuthContainer />

@@ -19,7 +19,7 @@ const StyledSearce = styled.div`
    padding: 0.3rem;
    border: 0px solid;
    background-color: var(--colors-grey);
-   border-radius: var(--rad); 
+   border-radius: var(--rad);
 `;
 
 export const MainInput = () => {

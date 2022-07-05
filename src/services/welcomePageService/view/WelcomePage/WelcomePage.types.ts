@@ -1,5 +1,5 @@
-import { WelcomePageStatus } from "../../welcomePageService.types";
+import { WelcomePageStatusTypes } from "../../welcomePageService.types";
 
 export type WelcomePageProps = {
-        welcomePageStatus: WelcomePageStatus
+        welcomePageStatus: WelcomePageStatusTypes
 };

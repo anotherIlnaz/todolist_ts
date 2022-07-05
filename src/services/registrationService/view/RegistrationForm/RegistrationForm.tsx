@@ -2,7 +2,7 @@ import { Formik } from "formik";
 import { FC } from "react";
 import * as yup from "yup";
 import { CreateUserDto } from "../../../../api/types";
-import { WelcomePageStatus } from "../../../welcomePageService/welcomePageService.types";
+import { WelcomePageStatusTypes } from "../../../welcomePageService/welcomePageService.types";
 
 import {
    ErrorMessage,
@@ -122,7 +122,7 @@ export const RegistrationForm: FC<RegistrationFormProps> = ({
                   </StyledButton>
 
                   <StyledButton
-                  onClick={() => setStatus(WelcomePageStatus.Authentication)}
+                  onClick={() => setStatus(WelcomePageStatusTypes.Authentication)}
                   > Есть аккаунт </StyledButton>
                </>
             )}

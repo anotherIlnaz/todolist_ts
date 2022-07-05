@@ -1,12 +1,12 @@
 import { forward } from "effector";
-import { WelcomePageStatus } from "../welcomePageService/welcomePageService.types";
+import { WelcomePageStatusTypes } from "../welcomePageService/welcomePageService.types";
 import { registrationService } from "./registrationService.model";
 
 const { inputs } = registrationService;
 
 forward({
    from: inputs.handleRegistrationComplete,
-   to: inputs.setStatus.prepend(() => WelcomePageStatus.Authentication),
+   to: inputs.setStatus.prepend(() => WelcomePageStatusTypes.Authentication),
 });
 
 export const RegistrationServiceRelations = () => null;
