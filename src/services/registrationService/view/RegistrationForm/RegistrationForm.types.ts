@@ -4,5 +4,5 @@ import { WelcomePageStatusTypes } from "../../../welcomePageService/welcomePageS
 export type RegistrationFormProps = {
    handleRegisterUser: (payload: CreateUserDto) => void;
    isLoading: boolean;
-   setStatus: (value: WelcomePageStatusTypes) => void
+   setStatus: (value: WelcomePageStatusTypes) => void;
 };

@@ -1,14 +1,12 @@
-import  { FC } from "react";
+import { FC } from "react";
 import { Button, Checkbox, Form, Input } from "antd";
 
-import { Wrapper } from "./AuthForm.styled";
+import { StyledButton, Wrapper } from "./AuthForm.styled";
 import { AuthFormProps } from "./AuthForm.types";
 
 import { WelcomePageStatusTypes } from "../../../welcomePageService/welcomePageService.types";
 
-export const AuthForm: FC<AuthFormProps> = ({
-   setStatus
-}) => {
+export const AuthForm: FC<AuthFormProps> = ({ setStatus }) => {
    const onFinish = (values: any) => {
       console.log("Success:", values);
    };
@@ -28,8 +26,8 @@ export const AuthForm: FC<AuthFormProps> = ({
          autoComplete="off"
       >
          <Form.Item
-            label="Username"
-            name="username"
+            label="Email"
+            name="email"
             rules={[{ required: true, message: "Введи Eмайл!" }]}
          >
             <Input />
@@ -55,10 +53,14 @@ export const AuthForm: FC<AuthFormProps> = ({
             <Button type="primary" htmlType="submit">
                Войти
             </Button>
-            <br />
-            <Button type="primary" onClick={ () => setStatus(WelcomePageStatusTypes.Registration) }>
-               Зарегистрироваться
-            </Button>
+            <StyledButton>
+               <Button
+                  type="primary"
+                  onClick={() => setStatus(WelcomePageStatusTypes.Registration)}
+               >
+                  Зарегистрироваться
+               </Button>
+            </StyledButton>
          </Form.Item>
       </Form>
    );
