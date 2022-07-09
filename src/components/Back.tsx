@@ -1,4 +1,5 @@
 import { IoChevronBackOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledBack = styled.div`
@@ -18,8 +19,12 @@ const StyledBack = styled.div`
 `;
 
 export const Back = () => {
+   const navigate = useNavigate();
+
+   const back = () => navigate(-1);
+
    return (
-      <StyledBack>
+      <StyledBack onClick={back}>
          <IoChevronBackOutline />
          <span className="back-wrapper">Назад</span>
       </StyledBack>

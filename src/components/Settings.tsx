@@ -2,6 +2,7 @@ import { Drawer, Popconfirm } from "antd";
 import { useEvent } from "effector-react";
 import { useState } from "react";
 import { IoEllipsisHorizontalCircleOutline } from "react-icons/io5";
+import { Navigate, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { authService } from "../services/authService";
 
@@ -25,7 +26,20 @@ const StyledOut = styled.div`
    justify-content: center;
 `;
 
+const StyledUserRoom = styled.div`
+margin-top: 10px;
+   padding: 15px;
+   font-size: 16px;
+   font-weight: 400;
+   border: 1px solid blue;
+   border-radius: 15px;
+   display: flex;
+   justify-content: center;
+`
+
+
 export const Settings = () => {
+   const navigate = useNavigate()
    const [visible, setVisible] = useState(false);
 
    const Logout = useEvent(authService.inputs.handleLogout);
@@ -56,6 +70,9 @@ export const Settings = () => {
             >
                <StyledOut>Отрегаться</StyledOut>
             </Popconfirm>
+            <StyledUserRoom
+            onClick={ () => navigate("/userRoom") }
+            >Комната юзера</StyledUserRoom>
          </Drawer>{" "}
       </>
    );

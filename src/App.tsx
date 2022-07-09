@@ -7,6 +7,7 @@ import { NotFound } from "./pages/NotFound";
 import { AuthorizedLayoutContainer } from "./services/authorizedLayoutService";
 import { AuthContainer, authService } from "./services/authService";
 import { NotificationsContainer } from "./services/notificationsService";
+import { UserContainer } from "./services/userService";
 import { WelcomePageContainer } from "./services/welcomePageService";
 import { Layout } from "./services/welcomePageService/view/Layout";
 
@@ -26,6 +27,7 @@ function App() {
                         element={<Navigate to="/main" replace />}
                         path="*"
                      />
+                     <Route element={<UserContainer />} path="/userRoom" />
                   </Route>
                ) : (
                   <Route element={<Layout />}>

@@ -1,6 +1,5 @@
 import { createDomain, forward, Store } from "effector";
 import { SignInDto, SignInResponseDto } from "../../api/types";
-import { registrationService } from "../registrationService";
 import { welcomePageService } from "../welcomePageService/welcomePageService.model";
 import { authPost } from "./authService.api";
 
