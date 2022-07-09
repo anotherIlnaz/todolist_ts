@@ -5,11 +5,10 @@ import { StyledButton, Wrapper } from "./AuthForm.styled";
 import { AuthFormProps } from "./AuthForm.types";
 
 import { WelcomePageStatusTypes } from "../../../welcomePageService/welcomePageService.types";
+import { SignInDto } from "../../../../api/types";
 
-export const AuthForm: FC<AuthFormProps> = ({ setStatus }) => {
-   const onFinish = (values: any) => {
-      console.log("Success:", values);
-   };
+export const AuthForm: FC<AuthFormProps> = ({ setStatus, handleLogin }) => {
+   const onFinish = (values: SignInDto) => handleLogin(values);
 
    const onFinishFailed = (errorInfo: any) => {
       console.log("Failed:", errorInfo);

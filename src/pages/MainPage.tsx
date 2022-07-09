@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 import { FoldersListBlock } from "../components/FoldersListBlock";
-import { Navbar } from "../components/Navbar/Navbar";
+import { MainInput } from "../components/MainInput";
 import { NotesListBlock } from "../components/NotesListBlock";
 
 const Container = styled.div`
@@ -14,9 +14,8 @@ const Container = styled.div`
 export const MainPage = () => {
    return (
       <>
-         <Navbar />
+         <MainInput/>
          <Container>
-            {/* <h1>Страница с папками</h1> */}
             <FoldersListBlock />
             <NotesListBlock />
          </Container>

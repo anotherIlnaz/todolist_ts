@@ -15,7 +15,7 @@ export const CurrentFolder = () => {
    return (
       <FolderContainer>
          <IoAlbumsOutline
-            style={{ fontSize: "20px", paddingRight: "0.75rem" }}
+            style={{ fontSize: "30px", paddingRight: "0.75rem" }}
          />
          <span>Folders</span>
       </FolderContainer>

@@ -17,22 +17,6 @@
 body {
    min-height: 100vh;
    margin: 0;
-   font-family: var(--f-family);
-   color: var(--colors-text);
-   font-weight: var(--fw-light);
-   background-color: var(--colors-bg);
-}
-
-body[data-theme="Dark"] {
-   --colors-text: hsl(0, 0%, 100%);
-   --colors-bg: hsl(210, 17%, 2%);
-   --colors-ui-base: hsl(209, 23%, 22%);
-   --colors-ui-apple: rgb(255, 179, 64);
-   --shadow: rgba(169, 169, 169, 0.348) 0px 2px 12px;
-   --colors-grey: rgba(64, 63, 66, 0.892);
-}
-
-body {
    --colors-text: hsl(200, 15%, 8%);
    --colors-bg: hsla(0, 4%, 91%, 0.838);
    --colors-ui-base: hsl(0, 0%, 100%);
@@ -40,4 +24,9 @@ body {
    --shadow: rgba(149, 157, 165, 0.645) 0px 8px 24px;
    --colors-grey: rgba(183, 181, 188, 0.892);
    --colors-grey-lupa: rgba(46, 45, 47, 0.892);
+
+   font-family: var(--f-family);
+   color: var(--colors-text);
+   font-weight: var(--fw-light);
+   background-color: var(--colors-bg);
 }
