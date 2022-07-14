@@ -1,3 +1,6 @@
 import { axios } from "../../api";
+import { UserResponseDto } from "../../api/types";
 
-axios.get("api/users/me").then( response => console.log(response)  )
+export const getUser = (): Promise<UserResponseDto> => {
+   return axios.get("users/me");
+};
