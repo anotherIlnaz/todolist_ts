@@ -1,0 +1,1 @@
+export { UserRedact } from './UserRedact'
