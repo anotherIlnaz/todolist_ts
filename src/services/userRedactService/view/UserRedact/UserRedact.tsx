@@ -10,6 +10,7 @@ import {
    FormInput,
    StyledLabel,
 } from "../../../registrationService/view/RegistrationForm/RegistrationForm.styled";
+import { userService } from "../../../userService";
 import { UploadImageContainer } from "../../uploadImageService";
 import { Wrapper } from "./UserRedact.styled";
 import { UserRedactProps } from "./UserRedact.types";
@@ -23,17 +24,19 @@ export const UserRedact: FC<UserRedactProps> = ({
    handleCancel,
    handleOk,
    isModalVisible,
+   userData,
 }) => {
    return (
       <Formik<PatchUserDto>
          initialValues={{
-            name: "",
-            email: "",
-            avatar: "",
+            name: userData?.name,
+            email: userData?.email,
+            avatar: userData?.avatar || "",
          }}
          onSubmit={handleOk}
          validateOnBlur
          validationSchema={validationsSchema}
+         enableReinitialize={true}
       >
          {({
             values,

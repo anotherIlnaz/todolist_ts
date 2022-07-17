@@ -38,6 +38,11 @@ $modalActive.on(modalOpen, () => true).reset(closeModal);
 
 const GetUserGate = createGate();
 
+forward({
+   from: setUserDataFx.doneData,
+   to: userService.inputs.loadUser,
+});
+
 export const userRedactService = {
    inputs: { modalOpen, handlePatch, closeModal, GetUserGate },
    outputs: { $modalActive },

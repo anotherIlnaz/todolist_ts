@@ -12,10 +12,7 @@ export const UserSettings: FC<UserSettingsProps> = ({
    return (
       <Layout>
          <Wrapper>
-            <Img
-               src={userData?.avatar && getImageLink(userData?.avatar)}
-               alt={userData?.name}
-            />
+            <Img src={userData?.avatar && getImageLink(userData?.avatar)} />
             <Item>
                {" "}
                <strong>User Name: </strong>
