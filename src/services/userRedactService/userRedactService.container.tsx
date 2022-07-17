@@ -6,6 +6,7 @@ export const UserRedactContainer = () => {
    const isModalVisible = useStore(userRedactService.outputs.$modalActive);
    const handleOk = useEvent(userRedactService.inputs.handlePatch);
    const handleCancel = useEvent(userRedactService.inputs.closeModal);
+   
    return (
       <UserRedact
          handleCancel={handleCancel}

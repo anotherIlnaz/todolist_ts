@@ -15,8 +15,6 @@ forward({
 
 $userResponse.on(getUserFx.doneData, (_, userData) => userData);
 
-
-
 export const userService = {
    inputs: { loadUser },
    outputs: { $userResponse },

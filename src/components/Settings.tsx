@@ -24,6 +24,8 @@ const StyledOut = styled.div`
    border-radius: 15px;
    display: flex;
    justify-content: center;
+   user-select: none;
+   cursor: pointer;
 `;
 
 const StyledUserRoom = styled.div`
@@ -35,6 +37,8 @@ margin-top: 10px;
    border-radius: 15px;
    display: flex;
    justify-content: center;
+   user-select: none;
+   cursor: pointer;
 `
 
 

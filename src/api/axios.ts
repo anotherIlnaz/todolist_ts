@@ -18,12 +18,7 @@ axiosInstance.interceptors.response.use(
    async (error: any) => {
       const originalRequest = error.config;
 
-      if (
-         error.response.status === 401 &&
-         error.config &&
-         !error.config._isRetry
-      ) {
-         originalRequest._isRetry = true;
+      if (error.response.status === 401 && error.config) {
          try {
             const tokens = (
                await axiosInstance.post("/auth/refresh", {

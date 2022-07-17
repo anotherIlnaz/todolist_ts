@@ -1,22 +1,22 @@
 import { Modal } from "antd";
 import FormItem from "antd/lib/form/FormItem";
 import { Formik } from "formik";
-import { FC, useState } from "react";
+import { FC } from "react";
 import * as yup from "yup";
 
 import { PatchUserDto } from "../../../../api/types";
 import {
    ErrorMessage,
    FormInput,
-   StyledButton,
    StyledLabel,
 } from "../../../registrationService/view/RegistrationForm/RegistrationForm.styled";
+import { UploadImageContainer } from "../../uploadImageService";
 import { Wrapper } from "./UserRedact.styled";
 import { UserRedactProps } from "./UserRedact.types";
 
 const validationsSchema = yup.object().shape({
-   name: yup.string().required("Обязательное поле"),
-   email: yup.string().required("Обязательное поле"),
+   name: yup.string(),
+   email: yup.string(),
 });
 
 export const UserRedact: FC<UserRedactProps> = ({
@@ -41,9 +41,8 @@ export const UserRedact: FC<UserRedactProps> = ({
             touched,
             handleChange,
             handleBlur,
-            isValid,
+            setFieldValue,
             handleSubmit,
-            dirty,
          }) => (
             <Modal
                title="Basic Modal"
@@ -53,6 +52,14 @@ export const UserRedact: FC<UserRedactProps> = ({
             >
                <Wrapper>
                   <>
+                     <FormItem>
+                        <UploadImageContainer
+                           handleChange={(image) =>
+                              setFieldValue("avatar", image)
+                           }
+                        />
+                     </FormItem>
+
                      <FormItem>
                         <StyledLabel htmlFor="name">Name:</StyledLabel>
                         <br />
@@ -79,14 +86,6 @@ export const UserRedact: FC<UserRedactProps> = ({
                         />
                         {touched.email && <ErrorMessage text={errors.email} />}
                      </FormItem>
-
-                     <StyledButton
-                        disabled={!isValid && !dirty}
-                        onClick={() => handleSubmit()}
-                        type={"submit"}
-                     >
-                        Изменить
-                     </StyledButton>
                   </>
                </Wrapper>
             </Modal>
