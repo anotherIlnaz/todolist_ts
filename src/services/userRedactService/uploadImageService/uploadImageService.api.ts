@@ -16,7 +16,5 @@ export const setAvatarRequest = async ({
       }
    );
 
-   console.log(res);
-
    return res.filename;
 };

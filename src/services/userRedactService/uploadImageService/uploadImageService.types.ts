@@ -17,5 +17,6 @@ export interface SetAvatarPayload {
 }
 
 export interface UploadImageContainerProps {
+   image?: string;
    handleChange: (imageSrc: string) => void;
 }

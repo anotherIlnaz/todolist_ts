@@ -1,14 +1,23 @@
 import { message } from "antd";
 import { useEvent } from "effector-react";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import { useNetworkErrors } from "../../../hooks/useNetworkErrors";
+import { getImageLink } from "../../../utils";
 import { uploadImageService } from "./uploadImageService.model";
 import { UploadImageContainerProps } from "./uploadImageService.types";
+import { ImagePreview } from "./view/ImagePreview";
 import { UploadImage } from "./view/UploadImage";
 
 export const UploadImageContainer: FC<UploadImageContainerProps> = ({
    handleChange,
+   image: imageValue,
 }) => {
+   const [image, setImage] = useState<string | null>(null);
+
+   useEffect(() => {
+      if (imageValue) setImage(imageValue);
+   }, [imageValue]);
+
    const handleUpload = useEvent(uploadImageService.inputs.setAvatar);
 
    const setAvatarFailed = uploadImageService.outputs.setAvatarFailed;
@@ -38,5 +47,12 @@ export const UploadImageContainer: FC<UploadImageContainerProps> = ({
 
    useNetworkErrors(setAvatarFailed);
 
-   return <UploadImage handleChange={onChange} />;
+   return image ? (
+      <ImagePreview
+         src={getImageLink(image)}
+         handleDelete={() => setImage(null)}
+      />
+   ) : (
+      <UploadImage handleChange={onChange} />
+   );
 };
