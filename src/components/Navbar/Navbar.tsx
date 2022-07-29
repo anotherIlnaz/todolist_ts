@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import { MainInput } from "../MainInput";
 import { Back } from "../Back";
-import { CurrentFolder } from "../CurrentFolder";
+import { Add } from "../AddButton";
 import { Options } from "../Options";
 
 const Container = styled.header`
@@ -25,7 +25,7 @@ export const Navbar = () => {
          <Container>
             <Wrapper>
                <Back />
-               <CurrentFolder />
+               <Add />
                <Options />
             </Wrapper>
          </Container>

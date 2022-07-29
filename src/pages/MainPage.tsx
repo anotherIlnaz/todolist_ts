@@ -1,9 +1,5 @@
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-
-import { FoldersListBlock } from "../components/FoldersListBlock";
-import { MainInput } from "../components/MainInput";
-import { NotesListBlock } from "../components/NotesListBlock";
+import { CreateDeskContainer } from "../services/createDeskService";
 
 const Container = styled.div`
    display: flex;
@@ -14,10 +10,8 @@ const Container = styled.div`
 export const MainPage = () => {
    return (
       <>
-         <MainInput/>
          <Container>
-            <FoldersListBlock />
-            <NotesListBlock />
+         <CreateDeskContainer />
          </Container>
       </>
    );

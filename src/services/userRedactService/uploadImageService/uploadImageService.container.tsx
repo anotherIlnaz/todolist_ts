@@ -11,6 +11,7 @@ import { UploadImage } from "./view/UploadImage";
 export const UploadImageContainer: FC<UploadImageContainerProps> = ({
    handleChange,
    image: imageValue,
+   id,
 }) => {
    const [image, setImage] = useState<string | null>(null);
 
@@ -53,6 +54,6 @@ export const UploadImageContainer: FC<UploadImageContainerProps> = ({
          handleDelete={() => setImage(null)}
       />
    ) : (
-      <UploadImage handleChange={onChange} />
+      <UploadImage handleChange={onChange} id={id} />
    );
 };

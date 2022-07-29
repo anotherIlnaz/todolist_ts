@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { Back } from "../../../../../components/Back";
-import { CurrentFolder } from "../../../../../components/CurrentFolder";
+import { Add } from "../../../../../components/AddButton";
 import { Options } from "../../../../../components/Options";
 
 import { Container, Wrapper } from "./Navbar.styled";
@@ -13,7 +13,7 @@ export const Navbar: FC<NavbarProps> = ({}) => {
          <Container>
             <Wrapper>
                <Back />
-               <CurrentFolder />
+               <Add />
                <Options />
             </Wrapper>
          </Container>

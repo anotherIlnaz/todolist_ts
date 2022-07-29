@@ -52,12 +52,13 @@ export const UserRedact: FC<UserRedactProps> = ({
                visible={isModalVisible}
                onOk={() => handleSubmit()}
                onCancel={handleCancel}
-               centered 
+               centered
             >
                <Wrapper>
                   <>
                      <FormItem>
                         <UploadImageContainer
+                           id="uploadImageInputsId"
                            image={values.avatar}
                            handleChange={(image) =>
                               setFieldValue("avatar", image)

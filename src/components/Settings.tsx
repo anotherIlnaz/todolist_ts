@@ -29,7 +29,7 @@ const StyledOut = styled.div`
 `;
 
 const StyledUserRoom = styled.div`
-margin-top: 10px;
+   margin-top: 10px;
    padding: 15px;
    font-size: 16px;
    font-weight: 400;
@@ -39,11 +39,22 @@ margin-top: 10px;
    justify-content: center;
    user-select: none;
    cursor: pointer;
-`
-
+`;
+const StyledZametki = styled.div`
+   margin-top: 10px;
+   padding: 15px;
+   font-size: 16px;
+   font-weight: 400;
+   border: 2px solid #eb6bc0 ;
+   border-radius: 15px;
+   display: flex;
+   justify-content: center;
+   user-select: none;
+   cursor: pointer;
+`;
 
 export const Settings = () => {
-   const navigate = useNavigate()
+   const navigate = useNavigate();
    const [visible, setVisible] = useState(false);
 
    const Logout = useEvent(authService.inputs.handleLogout);
@@ -74,9 +85,13 @@ export const Settings = () => {
             >
                <StyledOut>Отрегаться</StyledOut>
             </Popconfirm>
-            <StyledUserRoom
-            onClick={ () => navigate("/userRoom") }
-            >Комната юзера</StyledUserRoom>
+            <StyledUserRoom onClick={() => navigate("/userRoom")}>
+               Комната юзера
+            </StyledUserRoom>
+
+            <StyledZametki onClick={() => navigate("/manePage")}>
+               Zametki
+            </StyledZametki>
          </Drawer>{" "}
       </>
    );

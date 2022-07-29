@@ -1,3 +1,4 @@
+import { type } from "os";
 import { UserResponseDto } from "../../../api/types";
 
 export interface User extends UserResponseDto {}
@@ -19,4 +20,5 @@ export interface SetAvatarPayload {
 export interface UploadImageContainerProps {
    image?: string;
    handleChange: (imageSrc: string) => void;
+   id: string;
 }
