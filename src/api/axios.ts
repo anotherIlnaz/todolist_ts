@@ -2,7 +2,7 @@ import axios from "axios";
 import { authService } from "../services/authService";
 import { apiUrl } from "./urls";
 
-const axiosInstance = axios.create({ baseURL: apiUrl });
+const axiosInstance = axios.create({ baseURL: "http://localhost/api/" });
 
 axiosInstance.interceptors.request.use((config: any) => {
    const accessToken = localStorage.getItem("access");

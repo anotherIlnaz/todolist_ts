@@ -1,17 +1,11 @@
-import {
-   DesktopOutlined,
-   FileOutlined,
-   PieChartOutlined,
-   TeamOutlined,
-   UserOutlined,
-} from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Layout, Menu } from "antd";
 import React, { useState } from "react";
+import { LayoutSC, SiderSC } from "./Sider.styled";
 
-import './SiderStyles.css'
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Footer } = Layout;
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -34,15 +28,15 @@ const items: MenuItem[] = [
       getItem("Tom", "3"),
       getItem("Bill", "4"),
       getItem("Alex", "5"),
-   ]),   
+   ]),
 ];
 
 export const SiderAntD: React.FC = () => {
    const [collapsed, setCollapsed] = useState(false);
 
    return (
-      <Layout style={{ minHeight: "100vh" }}>
-         <Sider
+      <LayoutSC>
+         <SiderSC
             collapsible
             collapsed={collapsed}
             onCollapse={(value) => setCollapsed(value)}
@@ -58,14 +52,13 @@ export const SiderAntD: React.FC = () => {
                mode="inline"
                items={items}
             />
-         </Sider>
+         </SiderSC>
          <Layout className="site-layout">
             <Header className="site-layout-background" style={{ padding: 0 }} />
             <Content style={{ margin: "0 16px" }}>
-               
                <div
                   className="site-layout-background"
-                  style={{ padding:24, minHeight: 360 }}
+                  style={{ padding: 24, minHeight: 360 }}
                >
                   Bill is a cat.
                </div>
@@ -74,7 +67,6 @@ export const SiderAntD: React.FC = () => {
                Zametkalar ©2022 Created by Shafigullin & Pronix Group
             </Footer>
          </Layout>
-      </Layout>
+      </LayoutSC>
    );
 };
-
