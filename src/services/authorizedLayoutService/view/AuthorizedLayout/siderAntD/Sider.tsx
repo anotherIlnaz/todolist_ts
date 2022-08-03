@@ -1,38 +1,38 @@
 import { UserOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Layout, Menu } from "antd";
-import React, { useState } from "react";
+import { Menu } from "antd";
+import React, { useMemo, useState } from "react";
+import {  useNavigate } from "react-router-dom";
 import { LayoutSC, SiderSC } from "./Sider.styled";
-
-
-const { Header, Content, Footer } = Layout;
+import { SiderAntDProps } from "./Sider.types";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
 function getItem(
    label: React.ReactNode,
    key: React.Key,
-   icon?: React.ReactNode,
    children?: MenuItem[]
 ): MenuItem {
    return {
       key,
-      icon,
       children,
       label,
    } as MenuItem;
 }
 
-const items: MenuItem[] = [
-   getItem("User", "sub1", <UserOutlined />, [
-      getItem("Tom", "3"),
-      getItem("Bill", "4"),
-      getItem("Alex", "5"),
-   ]),
-];
-
-export const SiderAntD: React.FC = () => {
+export const SiderAntD: React.FC<SiderAntDProps> = ({ desks }) => {
    const [collapsed, setCollapsed] = useState(false);
+   const navigate = useNavigate();
+
+   const menuItems = useMemo(() => {
+      return [
+         getItem(
+            "Desks",
+            "desks",
+            desks.map((desk) => getItem(desk.name, desk._id))
+         ),
+      ];
+   }, [desks]);
 
    return (
       <LayoutSC>
@@ -42,31 +42,18 @@ export const SiderAntD: React.FC = () => {
             onCollapse={(value) => setCollapsed(value)}
             theme="light"
          >
-            {/* <div className="logo" /> */}
             <Menu
                theme="dark"
-               // theme="light"
-               // defaultSelectedKeys={["1"]}
-               // defaultOpenKeys={["1"]}
-               // openKeys={["2"]}
                mode="inline"
-               items={items}
+               items={menuItems}
+               onClick={(value) => {
+                  const keyPath = value.keyPath;
+                  const path = `/${keyPath[1]}/${keyPath[0]}`;
+
+                  navigate(path);
+               }}
             />
          </SiderSC>
-         <Layout className="site-layout">
-            <Header className="site-layout-background" style={{ padding: 0 }} />
-            <Content style={{ margin: "0 16px" }}>
-               <div
-                  className="site-layout-background"
-                  style={{ padding: 24, minHeight: 360 }}
-               >
-                  Bill is a cat.
-               </div>
-            </Content>
-            <Footer style={{ textAlign: "center" }}>
-               Zametkalar ©2022 Created by Shafigullin & Pronix Group
-            </Footer>
-         </Layout>
       </LayoutSC>
    );
 };

@@ -1,5 +1,4 @@
 import { createDomain, forward } from "effector";
-import { useStore } from "effector-react";
 import { CreateDeskDto } from "../../api/types";
 import { fetchCreateDesk } from "./createDeskService.api";
 

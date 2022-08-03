@@ -4,11 +4,11 @@ import { AuthorizedLayoutProps } from "./AuthorizedLayout.types";
 import { Navbar } from "./Navbar";
 import { SiderAntD } from "./siderAntD/Sider";
 
-export const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({}) => {
+export const AuthorizedLayout: FC<AuthorizedLayoutProps> = ({desks}) => {
    return (
       <Wrapper>
          <Navbar />
-         <SiderAntD />
+         <SiderAntD desks={desks}/>
       </Wrapper>
    );
 };
