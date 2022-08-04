@@ -19,6 +19,6 @@ forward({
 $isModalOpen.on(openDeskModal, () => true).reset(closeDeskModal);
 
 export const createDeskService = {
-   inputs: { closeDeskModal, openDeskModal, createDesk },
+   inputs: { closeDeskModal, openDeskModal, createDesk, createDeskFx },
    outputs: { $isModalOpen },
 };

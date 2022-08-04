@@ -1,7 +1,7 @@
 import { createDomain, forward, sample } from "effector";
 import { createGate } from "effector-react";
 import { DeskResponseDto } from "../../api/types";
-import { fetchDesk } from "./deskService.api";
+import { fetchDeleteDesk, fetchDesk } from "./deskService.api";
 
 const domain = createDomain("deskService");
 
@@ -18,14 +18,23 @@ const DeskIdGate = createGate<{
    deskID: string;
 }>();
 
+const deleteDesk = domain.event<string>();
+const deleteDeskFx = domain.effect<string, void>(fetchDeleteDesk);
+forward({
+   from: deleteDesk,
+   to: deleteDeskFx,
+});
+
 sample({
    clock: DeskIdGate.state,
    fn: (clocksTransmit) => clocksTransmit.deskID,
    target: getDeskFx,
 });
 
+
+
 export const deskService = {
-   inputs: {},
+   inputs: { deleteDesk, deleteDeskFx },
    outputs: { $desk, $isLoad },
    gates: {
       DeskIdGate,

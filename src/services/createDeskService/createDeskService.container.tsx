@@ -1,4 +1,5 @@
 import { useEvent, useStore } from "effector-react";
+import { useEffect } from "react";
 import { createDeskService } from "./createDeskService.model";
 import { CreateDeskModal } from "./view/CreateDeskModal";
 
@@ -11,6 +12,11 @@ export const CreateDeskContainer = () => {
    const handleCancel = useEvent(inputs.closeDeskModal);
 
    const handleSubmit = useEvent(inputs.createDesk);
+
+   useEffect(
+      () => inputs.createDeskFx.doneData.watch(handleCancel).unsubscribe,
+      []
+   );
 
    return (
       <>
