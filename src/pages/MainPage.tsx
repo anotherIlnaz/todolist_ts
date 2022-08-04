@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { CreateDeskContainer } from "../services/createDeskService";
 
 const Container = styled.div`
    display: flex;
@@ -11,7 +10,6 @@ export const MainPage = () => {
    return (
       <>
          <Container>
-         <CreateDeskContainer />
          </Container>
       </>
    );

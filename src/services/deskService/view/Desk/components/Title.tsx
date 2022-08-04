@@ -6,8 +6,6 @@ type TitleProps = {
 
 export const Title: FC<TitleProps> = ({ deskTitle }) => {
    return (
-      <>
-         <h1>{deskTitle}</h1>
-      </>
+      <div style={{ fontWeight: "400", fontSize :"32px" }}>{deskTitle}</div>
    );
 };

@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { MainPage } from "./pages/MainPage";
 import { NotesPage } from "./pages/NotesPage";
-import { NotFound } from "./pages/NotFound";
 import { AuthorizedLayoutContainer } from "./services/authorizedLayoutService";
 import { AuthContainer, authService } from "./services/authService";
 import { DeskContainer } from "./services/deskService";
@@ -21,14 +20,14 @@ function App() {
          <BrowserRouter>
             <Routes>
                {isAuth ? (
-                  <Route element={<AuthorizedLayoutContainer/>}>
-                     <Route element={<MainPage />} path="/main" />
-                     <Route element={<NotesPage />} path="/notes:id" />
-                     <Route element={<DeskContainer />} path="/desks/:id" />
-                     <Route
-                        element={<Navigate to="/main" replace />}
-                        path="*"
-                     />
+                  <Route element={<AuthorizedLayoutContainer />}>
+                        <Route element={<MainPage />} path="/main" />
+                        <Route element={<NotesPage />} path="/notes:id" />
+                        <Route element={<DeskContainer />} path="/desks/:id" />
+                        <Route
+                           element={<Navigate to="/main" replace />}
+                           path="*"
+                        />
                      <Route element={<UserContainer />} path="/userRoom" />
                   </Route>
                ) : (

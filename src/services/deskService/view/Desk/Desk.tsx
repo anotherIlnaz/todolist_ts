@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Column } from "./components/Column";
 import { Title } from "./components/Title";
-import { Wrapper } from "./Desk.styled";
+import { ColumnsWrapper, Wrapper } from "./Desk.styled";
 import { DeskProps } from "./Desk.types";
 
 export const Desk: FC<DeskProps> = ({ deskValue }) => {
@@ -13,9 +13,11 @@ export const Desk: FC<DeskProps> = ({ deskValue }) => {
    return (
       <Wrapper>
          <Title deskTitle={deskTitle} />
-         {columnsData.map((column) => (
-            <Column column={column} />
-         ))}
+         <ColumnsWrapper>
+            {columnsData.map((column) => (
+               <Column column={column} />
+            ))}
+         </ColumnsWrapper>
       </Wrapper>
    );
 };

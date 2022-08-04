@@ -1,6 +1,4 @@
 import { useEvent, useStore } from "effector-react";
-import { useState } from "react";
-import { ColumnCreateDto } from "../../api/types";
 import { createDeskService } from "./createDeskService.model";
 import { CreateDeskModal } from "./view/CreateDeskModal";
 
