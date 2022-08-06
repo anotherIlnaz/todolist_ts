@@ -18,7 +18,20 @@ export const ColumnWrapper = styled.div<{ columnColor?: string }>`
 `;
 
 export const NameSC = styled.div`
-   font-size: 22px;
+   font-size: 20px;
    font-weight: 400;
-   margin: 6px 14px;
-`
+   padding: 6px 14px;
+
+   width: 100%;
+   max-height: 50px;
+
+   background-color: #031d33;
+   color: #fff;
+
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+`;

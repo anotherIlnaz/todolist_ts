@@ -2,6 +2,7 @@ import { useEvent, useStore } from "effector-react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Loader } from "../../shared/Loader";
+import { createTaskService } from "../createTaskService";
 import { deskService } from "./deskService.model";
 import { Desk } from "./view/Desk";
 
@@ -25,11 +26,13 @@ export const DeskContainer = () => {
       []
    );
 
+   const addNewTask = useEvent(createTaskService.inputs.addNewTask) 
+
    return (
       <>
          {id && <DeskIdGate deskID={id} />}
          {loading && <Loader />}
-         {!loading && desk && <Desk deskValue={desk} onDelete={onDelete} />}
+         {!loading && desk && <Desk deskValue={desk} onDelete={onDelete} addNewTask={addNewTask} />}
       </>
    );
 };
