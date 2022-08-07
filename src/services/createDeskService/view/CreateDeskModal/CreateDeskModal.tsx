@@ -103,6 +103,8 @@ export const CreateDeskModal: FC<CreateDeskModalProps> = ({
                            onChange={(value) =>
                               setFieldValue(`columns[${index}]`, value)
                            }
+
+                           
                         />
                         <StyledError>
                            {(errors.columns?.[index] as { name: string })

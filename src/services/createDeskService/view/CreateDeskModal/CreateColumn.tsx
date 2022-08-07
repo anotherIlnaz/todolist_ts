@@ -1,4 +1,4 @@
-import { Button, Input, Modal } from "antd";
+import {  Input, Modal } from "antd";
 import { CreateColumnProps } from "./CreateColumn.types";
 import {
    ColorPicker,
@@ -10,7 +10,7 @@ import {
 
 import { HexColorPicker } from "react-colorful";
 import { IoColorFilter } from "react-icons/io5";
-import { useEffect, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 
 export const CreateColumn = ({
    deleteColumn,
@@ -32,7 +32,7 @@ export const CreateColumn = ({
    const handleCancel = () => {
       setIsModalVisible(false);
    };
-   console.log(index);
+
 
    return (
       <Container>

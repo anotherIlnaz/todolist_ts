@@ -8,9 +8,14 @@ const closeDeskModal = domain.event();
 const $isModalOpen = domain.store(false);
 
 forward({
-  from: createTaskService.inputs.addNewTask,
-  to: openDeskModal
-})
+   from: createTaskService.inputs.postTaskFx.doneData,
+   to: closeDeskModal,
+});
+
+forward({
+   from: createTaskService.inputs.addNewTask,
+   to: openDeskModal,
+});
 
 $isModalOpen.on(openDeskModal, () => true).reset(closeDeskModal);
 
