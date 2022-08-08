@@ -1,6 +1,10 @@
 import { FC } from "react";
-import { ColumnResponseDto } from "../../../../../api/types";
+import {
+   ColumnResponseDto,
+   TaskTinyResponseDto,
+} from "../../../../../api/types";
 import { CreateTaskContainer } from "../../../../createTaskService";
+import { TaskContainer } from "../../../../taskService";
 import { ColumnWrapper, NameSC, WrapperSC } from "./Column.styled";
 
 type ColumnsProps = {
@@ -13,6 +17,7 @@ export const Column: FC<ColumnsProps> = ({ column }) => {
          <ColumnWrapper columnColor={column.color}>
             <NameSC>{column.name}</NameSC>
             <CreateTaskContainer />
+            <TaskContainer tasks={column.tasks} />
          </ColumnWrapper>
       </WrapperSC>
    );

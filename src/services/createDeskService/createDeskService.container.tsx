@@ -7,7 +7,6 @@ const { inputs, outputs } = createDeskService;
 
 export const CreateDeskContainer = () => {
    const isModalOpen = useStore(outputs.$isModalOpen);
-   console.log(isModalOpen);
 
    const handleCancel = useEvent(inputs.closeDeskModal);
 

@@ -1,14 +1,15 @@
-import { createDomain } from 'effector';
+import { createDomain } from "effector";
+import { deskService } from "../deskService";
 
-const domain = createDomain(
-  'taskService'
-);
+const { inputs, outputs } = deskService;
+
+const deskData = outputs.$desk;
+
+const domain = createDomain("taskService");
 
 export const taskService = {
-  inputs: {
-  
-  },
-  outputs: {
-
-  },
+   inputs: {},
+   outputs: {
+      deskData,
+   },
 };

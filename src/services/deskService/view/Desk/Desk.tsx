@@ -16,7 +16,6 @@ export const Desk: FC<DeskProps> = ({ deskValue, onDelete, addNewTask }) => {
    const deskTitle = deskValue.name;
    const columnsData = deskValue.columns;
 
-
    return (
       <Wrapper>
          <CreateTaskModalContainer />
@@ -24,7 +23,9 @@ export const Desk: FC<DeskProps> = ({ deskValue, onDelete, addNewTask }) => {
          <TitleContainerSc>
             <Title deskTitle={deskTitle} />
             <ButtonBlock>
-               <ButtonSC onClick={ () =>  addNewTask(deskValue._id) } >Новая задача</ButtonSC>
+               <ButtonSC onClick={() => addNewTask(deskValue._id)}>
+                  Новая задача
+               </ButtonSC>
                <Button danger onClick={() => onDelete(deskValue._id)}>
                   Удалить доску
                </Button>
@@ -36,7 +37,6 @@ export const Desk: FC<DeskProps> = ({ deskValue, onDelete, addNewTask }) => {
                <Column column={column} />
             ))}
          </ColumnsWrapper>
-         
       </Wrapper>
    );
 };
