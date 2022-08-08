@@ -10,7 +10,6 @@ export const CreateTaskFormContainer = () => {
    const deskId = deskData?._id;
    const columnsList = deskData?.columns;
 
-   const reGetDesk = useEvent(inputs.reGetDesk)
 
    const handleSubmit = useEvent(inputs.handleSubmit);
 

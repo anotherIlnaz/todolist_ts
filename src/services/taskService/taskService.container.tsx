@@ -1,16 +1,16 @@
-import { useStore } from "effector-react";
 import { FC } from "react";
 import { TaskTinyResponseDto } from "../../api/types";
-import { taskService } from "./taskService.model";
 import { Task } from "./view/Task";
-
-const { inputs, outputs } = taskService;
 
 type TaskContainerProps = {
    tasks: TaskTinyResponseDto[];
+   parentColumnId: string;
 };
 
-export const TaskContainer: FC<TaskContainerProps> = ({ tasks }) => {
+export const TaskContainer: FC<TaskContainerProps> = ({
+   tasks,
+   parentColumnId,
+}) => {
    return (
       <>
          {tasks.map((task) => (
@@ -18,6 +18,7 @@ export const TaskContainer: FC<TaskContainerProps> = ({ tasks }) => {
                taskTitle={task.title}
                taskDescription={task.description}
                taskId={task._id}
+               parentColumnId={parentColumnId}
             />
          ))}
       </>

@@ -11,10 +11,7 @@ const $deskData = domain.store<DeskResponseDto | null>(null);
 
 const postTaskFx = domain.effect(fetchCreateTask);
 
-// forward({
-//    from: postTaskFx.doneData,
-//    to:addNewTask ,
-// })
+// 
 
 forward({
    from: addNewTask,

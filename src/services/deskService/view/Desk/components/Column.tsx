@@ -17,7 +17,7 @@ export const Column: FC<ColumnsProps> = ({ column }) => {
          <ColumnWrapper columnColor={column.color}>
             <NameSC>{column.name}</NameSC>
             
-            <TaskContainer tasks={column.tasks} />
+            <TaskContainer tasks={column.tasks} parentColumnId={column._id} />
          </ColumnWrapper>
       </WrapperSC>
    );
