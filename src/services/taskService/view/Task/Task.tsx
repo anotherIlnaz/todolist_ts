@@ -4,7 +4,7 @@ import { TaskProps } from "./Task.types";
 
 export const Task: FC<TaskProps> = ({ taskTitle, taskDescription, taskId }) => {
    return (
-      <Wrapper>
+      <Wrapper draggable={true}>
          <h1>{taskTitle}</h1>
          <div>{taskDescription}</div>
       </Wrapper>

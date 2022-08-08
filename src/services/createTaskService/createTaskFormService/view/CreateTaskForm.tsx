@@ -47,7 +47,6 @@ export const CreateTaskForm: FC<CreateTaskFormProps> = ({
             value={values.title}
          />
          <br />
-         {/* <StyledError>{errors.name}</StyledError> */}
          <ErrorText>{errors.title}</ErrorText>
 
          <Form.Item>
@@ -74,7 +73,13 @@ export const CreateTaskForm: FC<CreateTaskFormProps> = ({
             </Select>
          </Form.Item>
 
-         <Button onClick={submitForm}>Готово</Button>
+         <Button
+            onClick={() => {
+               submitForm();
+            }}
+         >
+            Готово
+         </Button>
       </Wrapper>
    );
 };

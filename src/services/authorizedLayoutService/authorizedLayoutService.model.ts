@@ -2,6 +2,7 @@ import { createDomain, forward } from "effector";
 import { createGate } from "effector-react";
 import { DesksListResponseDto, DeskTinyResponseDto } from "../../api/types";
 import { createDeskService } from "../createDeskService";
+import { createTaskService } from "../createTaskService";
 import { deskService } from "../deskService";
 import { getDesks } from "./authotizedLayoutService.api";
 
@@ -16,6 +17,11 @@ $desks.on(getDesksFx.doneData, (_, desks) => desks.items);
 const DesksGate = createGate();
 
 const refetchDesks = domain.event<void>();
+
+forward({
+   from: createTaskService.inputs.postTaskFx.doneData,
+   to: refetchDesks,
+});
 
 forward({
    from: deskService.inputs.deleteDeskFx.doneData,

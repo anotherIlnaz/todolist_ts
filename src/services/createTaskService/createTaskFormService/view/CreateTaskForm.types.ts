@@ -3,6 +3,7 @@ import { ColumnResponseDto, CreateTaskDto } from "../../../../api/types";
 export type CreateTaskFormProps = {
    handleSubmit: (payload: CreateTaskDto) => CreateTaskDto;
 
+
    deskId: string | undefined;
    columnsList: ColumnResponseDto[] | undefined;
 };

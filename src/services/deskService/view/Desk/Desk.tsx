@@ -1,5 +1,6 @@
 import { Button } from "antd";
 import { FC } from "react";
+import { CreateTaskContainer } from "../../../createTaskService";
 import { CreateTaskModalContainer } from "../../../createTaskService/createTaskModalService";
 import { Column } from "./components/Column";
 import { Title } from "./components/Title";
@@ -34,9 +35,11 @@ export const Desk: FC<DeskProps> = ({ deskValue, onDelete, addNewTask }) => {
 
          <ColumnsWrapper>
             {columnsData.map((column) => (
-               <Column column={column} />
+               <Column column={column} key={column._id} />
             ))}
          </ColumnsWrapper>
+
+         <CreateTaskContainer />
       </Wrapper>
    );
 };
