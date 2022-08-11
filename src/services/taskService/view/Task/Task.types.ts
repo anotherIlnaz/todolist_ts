@@ -5,4 +5,5 @@ export type TaskProps = {
    parentColumnId: string;
 
    modalOpeningHandler: () => void;
+   taskIdTransmit: (id: string) => string;
 };
