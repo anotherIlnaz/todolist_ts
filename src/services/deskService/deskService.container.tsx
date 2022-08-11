@@ -1,5 +1,7 @@
 import { useEvent, useStore } from "effector-react";
 import { useEffect } from "react";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import { useNavigate, useParams } from "react-router-dom";
 import { Loader } from "../../shared/Loader";
 import { createTaskService } from "../createTaskService";
@@ -26,13 +28,21 @@ export const DeskContainer = () => {
       []
    );
 
-   const addNewTask = useEvent(createTaskService.inputs.addNewTask) 
+   const addNewTask = useEvent(createTaskService.inputs.addNewTask);
 
    return (
       <>
          {id && <DeskIdGate deskID={id} />}
          {loading && <Loader />}
-         {!loading && desk && <Desk deskValue={desk} onDelete={onDelete} addNewTask={addNewTask} />}
+         <DndProvider backend={HTML5Backend}>
+            {!loading && desk && (
+               <Desk
+                  deskValue={desk}
+                  onDelete={onDelete}
+                  addNewTask={addNewTask}
+               />
+            )}
+         </DndProvider>
       </>
    );
 };

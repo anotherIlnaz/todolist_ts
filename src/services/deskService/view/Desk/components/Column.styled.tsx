@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const WrapperSC = styled.div`
+export const WrapperSC = styled.div<{isOver:boolean}>`
    margin-left: 15px;
    width: 100%;
 `;
@@ -25,7 +25,7 @@ export const NameSC = styled.div`
 
    background-color: #031d33;
    color: #fff;
-   
+
    border-top-left-radius: 20px;
    border-top-right-radius: 20px;
    display: flex;

@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useDrag } from "react-dnd";
+import { TaskPresentationContainer } from "../../../taskPresentationService";
 import { Wrapper } from "./Task.styled";
 import { TaskProps } from "./Task.types";
 
@@ -8,6 +9,7 @@ export const Task: FC<TaskProps> = ({
    taskDescription,
    taskId,
    parentColumnId,
+   modalOpeningHandler,
 }) => {
    const [{ isDragging }, drag] = useDrag(() => ({
       type: "task",
@@ -17,9 +19,14 @@ export const Task: FC<TaskProps> = ({
       }),
    }));
    return (
-      <Wrapper ref={drag} isDragging={isDragging}>
+      <Wrapper
+         ref={drag}
+         isDragging={isDragging}
+         onClick={() => modalOpeningHandler()}
+      >
          <h1>{taskTitle}</h1>
          <div>{taskDescription}</div>
+         
       </Wrapper>
    );
 };
