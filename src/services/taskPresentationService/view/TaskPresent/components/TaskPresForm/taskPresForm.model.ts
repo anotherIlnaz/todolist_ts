@@ -1,28 +1,32 @@
 import { createDomain, forward } from "effector";
-import { createTaskService } from "../../../../../createTaskService";
 import { PatchTaskPayload } from "../../../../taskPresentation.types";
+import {
+   deleteTaskRequest,
+   patchTaskRequest,
+} from "../../../../taskPresentationService.api";
 
-interface PatchTaskDto {
-   title: string;
-   description: string;
-   preview: string;
-}
 const domain = createDomain("taskPresFormService");
 
+const patchTask = domain.event<PatchTaskPayload>();
+const patchTaskFx = domain.effect(patchTaskRequest);
+forward({
+   from: patchTask,
+   to: patchTaskFx,
+});
 
-
-const $deskData = createTaskService.outputs.$deskData;
-
-const handleSubmit = domain.event<PatchTaskPayload>();
-
-const reGetDesk = domain.event();
-
-
+const deleteTaskFx = domain.effect(deleteTaskRequest);
+const deleteTask = domain.event<string>();
+forward({
+   from: deleteTask,
+   to: deleteTaskFx,
+});
 
 export const taskPresFormService = {
    inputs: {
-      handleSubmit,
-      reGetDesk,
+      patchTask,
+      deleteTask,
+      deleteTaskFx,
+      patchTaskFx
    },
-   outputs: { $deskData },
+   outputs: {},
 };

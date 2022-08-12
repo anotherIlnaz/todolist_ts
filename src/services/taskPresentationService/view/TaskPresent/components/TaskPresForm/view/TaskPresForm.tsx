@@ -18,23 +18,28 @@ const CreateTaskSchema = Yup.object().shape({
    description: Yup.string().required("Без описания не имеет смысла "),
 });
 
-export const TaskPresForm: FC<TaskPresFormProps> = ({ taskData }) => {
-   const { values, handleChange, errors, submitForm } = useFormik<PatchTaskDto>(
-      {
+export const TaskPresForm: FC<TaskPresFormProps> = ({
+   taskData,
+   deleteTask,
+   patchTask,
+}) => {
+   const { values, handleChange, errors, submitForm } =
+      useFormik<PatchTaskPayload>({
          initialValues: {
             title: taskData.title,
             preview: taskData.preview,
             description: taskData.description,
+            id: taskData._id,
          },
          validateOnBlur: false,
          validateOnChange: false,
          validationSchema: CreateTaskSchema,
          onSubmit: (values) => {
+            patchTask(values);
             // без ретурна, иначе при возвращении  интерфейс формика ругается что мы ему возращаем эти значения
          },
          enableReinitialize: true,
-      }
-   );
+      });
    return (
       <Wrapper>
          <Input
@@ -54,12 +59,13 @@ export const TaskPresForm: FC<TaskPresFormProps> = ({ taskData }) => {
          ></TextareaSC>
          <ErrorText>{errors?.description}</ErrorText>
 
+         <Button onClick={submitForm}>Готово</Button>
          <Button
             onClick={() => {
-               submitForm();
+               deleteTask(taskData._id);
             }}
          >
-            Готово
+            Удалить
          </Button>
       </Wrapper>
    );

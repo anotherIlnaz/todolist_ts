@@ -9,18 +9,9 @@ import { taskPresModalService } from "./view/TaskPresent/components/TaskPresModa
 
 const domain = createDomain("taskPresentationService");
 
-const patchTaskRequestFx = domain.effect(patchTaskRequest);
-
-const handleSubmit = taskPresFormService.inputs.handleSubmit;
-
 const taskIdTransmit = domain.event<string>();
 const $taskId = domain.store("");
 $taskId.on(taskIdTransmit, (_, id) => id);
-
-forward({
-   from: handleSubmit,
-   to: patchTaskRequestFx,
-});
 
 const getTaskDataRequestFx = domain.effect(getTaskDataRequest);
 

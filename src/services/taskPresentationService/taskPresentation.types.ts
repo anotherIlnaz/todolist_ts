@@ -7,6 +7,8 @@ export interface TinyTaskWithColumn extends TaskTinyResponseDto {
 export interface IPatchTask extends PatchTaskDto {}
 
 export interface PatchTaskPayload {
-   data: PatchTaskDto;
+   title: string;
+   preview: string;
+   description: string;
    id: string;
 }

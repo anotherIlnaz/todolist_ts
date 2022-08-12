@@ -2,6 +2,7 @@ import { createDomain, forward, guard, sample } from "effector";
 import { createGate } from "effector-react";
 import { DeskResponseDto } from "../../api/types";
 import { createTaskFormService } from "../createTaskService/createTaskFormService";
+import { taskPresFormService } from "../taskPresentationService/view/TaskPresent/components/TaskPresForm/taskPresForm.model";
 import { fetchDeleteDesk, fetchDesk } from "./deskService.api";
 
 const domain = createDomain("deskService");
@@ -46,6 +47,18 @@ sample({
 forward({
    from: getDeskHandle,
    to: getDeskFx,
+});
+sample({
+   clock: taskPresFormService.inputs.deleteTaskFx.doneData,
+   source: DeskIdGate.state,
+   fn: (clocksTransmit) => clocksTransmit.deskID,
+   target: getDeskFx,
+});
+sample({
+   clock: taskPresFormService.inputs.patchTaskFx.doneData,
+   source: DeskIdGate.state,
+   fn: (clocksTransmit) => clocksTransmit.deskID,
+   target: getDeskFx,
 });
 
 export const deskService = {

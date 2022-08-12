@@ -13,10 +13,12 @@ export const getTaskDataRequest = (taskId: string): Promise<TaskResponseDto> =>
    axios.get(`/tasks/${taskId}`);
 
 export const patchTaskRequest = ({
-   data,
+   title,
+   preview,
+   description,
    id,
 }: PatchTaskPayload): Promise<TinyTaskWithColumn> =>
-   ( axios.patch(`/tasks/${id}`, data));
+   axios.patch(`/tasks/${id}`, { title, preview, description });
 
-export const deleteTaskRequest = async (id: string): Promise<string> =>
-   (await axios.delete(`tasks/${id}`)).data._id;
+export const deleteTaskRequest = (id: string): Promise<string> =>
+   axios.delete(`tasks/${id}`);

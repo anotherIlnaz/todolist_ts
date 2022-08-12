@@ -1,10 +1,6 @@
 import { FC } from "react";
-import { ConnectDropTarget, useDrop } from "react-dnd";
-import {
-   ColumnResponseDto,
-   TaskTinyResponseDto,
-} from "../../../../../api/types";
-import { CreateTaskContainer } from "../../../../createTaskService";
+import { useDrop } from "react-dnd";
+import { ColumnResponseDto } from "../../../../../api/types";
 import { TaskContainer } from "../../../../taskService";
 import { ColumnWrapper, NameSC, WrapperSC } from "./Column.styled";
 
@@ -17,7 +13,7 @@ export const Column: FC<ColumnsProps> = ({ column }) => {
       accept: "task",
       drop: () => {},
       collect: (monitor) => ({
-        isOver: !!monitor.isOver()
+         isOver: !!monitor.isOver(),
       }),
    }));
 
