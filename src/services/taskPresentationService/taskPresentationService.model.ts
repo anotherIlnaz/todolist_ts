@@ -5,6 +5,7 @@ import {
    patchTaskRequest,
 } from "./taskPresentationService.api";
 import { taskPresFormService } from "./view/TaskPresent/components/TaskPresForm/taskPresForm.model";
+import { taskPresModalService } from "./view/TaskPresent/components/TaskPresModal/taskPresModal.model";
 
 const domain = createDomain("taskPresentationService");
 
@@ -34,9 +35,11 @@ const $taskData = domain.store<TaskResponseDto>({
    description: "",
    preview: "",
 });
-$taskData.on(getTaskDataRequestFx.doneData, (_, data) => data);
+$taskData
+   .on(getTaskDataRequestFx.doneData, (_, data) => data)
+   .reset(taskPresModalService.inputs.handleClose);
 
 export const taskPresentationService = {
    inputs: { taskIdTransmit },
-   outputs: { $taskId, $taskData, },
+   outputs: { $taskId, $taskData },
 };

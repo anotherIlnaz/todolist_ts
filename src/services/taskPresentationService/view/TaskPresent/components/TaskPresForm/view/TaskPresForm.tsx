@@ -1,7 +1,9 @@
+import { Input, Typography } from "@mui/material";
 import { Button, Form, Select } from "antd";
 import { useFormik } from "formik";
 import { FC } from "react";
 import * as Yup from "yup";
+import { PatchTaskDto } from "../../../../../../../api/types";
 import { FormInputDesk } from "../../../../../../createDeskService/view/CreateDeskModal/CreateDeskModal.styled";
 import {
    ErrorText,
@@ -17,16 +19,12 @@ const CreateTaskSchema = Yup.object().shape({
 });
 
 export const TaskPresForm: FC<TaskPresFormProps> = ({ taskData }) => {
-
-   const { values, setFieldValue, handleChange, errors, submitForm } =
-      useFormik<PatchTaskPayload>({
+   const { values, handleChange, errors, submitForm } = useFormik<PatchTaskDto>(
+      {
          initialValues: {
-            data: {
-               title: taskData.title,
-               preview: taskData.preview,
-               description: taskData.description,
-            },
-            id: taskData._id,
+            title: taskData.title,
+            preview: taskData.preview,
+            description: taskData.description,
          },
          validateOnBlur: false,
          validateOnChange: false,
@@ -35,24 +33,26 @@ export const TaskPresForm: FC<TaskPresFormProps> = ({ taskData }) => {
             // без ретурна, иначе при возвращении  интерфейс формика ругается что мы ему возращаем эти значения
          },
          enableReinitialize: true,
-      });
+      }
+   );
    return (
       <Wrapper>
-         <FormInputDesk
+         <Input
             type={"text"}
             name={"title"}
             onChange={handleChange}
-            value={values.data.title}
+            value={values.title}
+            size="medium"
          />
          <br />
-         <ErrorText>{errors.data?.title}</ErrorText>
+         <ErrorText>{errors?.title}</ErrorText>
 
          <TextareaSC
-            value={values.data.description}
+            value={values.description}
             name="description"
             onChange={handleChange}
          ></TextareaSC>
-         <ErrorText>{errors.data?.description}</ErrorText>
+         <ErrorText>{errors?.description}</ErrorText>
 
          <Button
             onClick={() => {

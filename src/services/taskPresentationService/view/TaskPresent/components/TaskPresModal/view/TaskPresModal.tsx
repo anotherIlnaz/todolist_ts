@@ -12,12 +12,7 @@ export const TaskPresModal: FC<TaskPresModalProps> = ({
 }) => {
    return (
       <div>
-         <Modal
-            open={open}
-            onClose={closeHandler}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-         >
+         <Modal open={open} onClose={closeHandler}>
             <Box sx={style}>
                <TaskPresFormContainer />
             </Box>
