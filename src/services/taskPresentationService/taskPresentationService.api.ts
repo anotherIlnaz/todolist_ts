@@ -3,11 +3,11 @@ import { TaskResponseDto } from "../../api/types";
 
 import { PatchTaskPayload, TinyTaskWithColumn } from "./taskPresentation.types";
 
- interface PatchTaskDto {
+interface PatchTaskDto {
    title: string;
    description: string;
    preview: string;
- }
+}
 
 export const getTaskDataRequest = async (
    taskId: string

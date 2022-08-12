@@ -1,4 +1,5 @@
 import { createDomain, forward } from "effector";
+import { TaskResponseDto } from "../../api/types";
 import {
    getTaskDataRequest,
    patchTaskRequest,
@@ -27,7 +28,15 @@ forward({
    to: getTaskDataRequestFx,
 });
 
+const $taskData = domain.store<TaskResponseDto>({
+   _id: "",
+   title: "",
+   description: "",
+   preview: "",
+});
+$taskData.on(getTaskDataRequestFx.doneData, (_, data) => data);
+
 export const taskPresentationService = {
    inputs: { taskIdTransmit },
-   outputs: { $taskId },
+   outputs: { $taskId, $taskData, },
 };

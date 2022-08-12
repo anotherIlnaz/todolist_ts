@@ -16,16 +16,17 @@ const CreateTaskSchema = Yup.object().shape({
    description: Yup.string().required("Без описания не имеет смысла "),
 });
 
-export const TaskPresForm: FC<TaskPresFormProps> = ({}) => {
+export const TaskPresForm: FC<TaskPresFormProps> = ({ taskData }) => {
+
    const { values, setFieldValue, handleChange, errors, submitForm } =
       useFormik<PatchTaskPayload>({
          initialValues: {
             data: {
-               title: "",
-               preview: "",
-               description: "",
+               title: taskData.title,
+               preview: taskData.preview,
+               description: taskData.description,
             },
-            id: "",
+            id: taskData._id,
          },
          validateOnBlur: false,
          validateOnChange: false,
@@ -46,15 +47,12 @@ export const TaskPresForm: FC<TaskPresFormProps> = ({}) => {
          <br />
          <ErrorText>{errors.data?.title}</ErrorText>
 
-         <Form.Item>
-            <TextareaSC
-               value={values.data.description}
-               name="description"
-               onChange={handleChange}
-               placeholder="Описание задачи"
-            ></TextareaSC>
-            <ErrorText>{errors.data?.description}</ErrorText>
-         </Form.Item>
+         <TextareaSC
+            value={values.data.description}
+            name="description"
+            onChange={handleChange}
+         ></TextareaSC>
+         <ErrorText>{errors.data?.description}</ErrorText>
 
          <Button
             onClick={() => {
