@@ -1,4 +1,4 @@
-import { createDomain, forward, guard, sample } from "effector";
+import { createDomain, forward, sample } from "effector";
 import { createGate } from "effector-react";
 import { DeskResponseDto } from "../../api/types";
 import { createTaskFormService } from "../createTaskService/createTaskFormService";
@@ -60,6 +60,8 @@ sample({
    fn: (clocksTransmit) => clocksTransmit.deskID,
    target: getDeskFx,
 });
+
+
 
 export const deskService = {
    inputs: { deleteDesk, deleteDeskFx, getDeskFx, getDeskHandle },
